@@ -3,6 +3,7 @@ import axios from "axios";
 
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
+axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
 
 export const useAuthStore = create((set) => ({
