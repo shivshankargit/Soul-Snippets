@@ -1,24 +1,19 @@
 import { ScrollText, Mail, BookOpen } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from '../store/authStore';
 
 export function Home() {
     const navigate = useNavigate();
-    const {isAuthenticated, isCheckingAuth} = useAuthStore();
+
     return (
         <div className="bg-slate-300 h-screen">
-
             <header className="bg-white shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
                     <h1 className="text-2xl font-bold text-gray-900">Soul Snippets</h1>
                     <button
-                        onClick={() => isAuthenticated ? navigate('/dashboard') : navigate('/signin')}
+                        onClick={() => navigate('/signin')}
                         className="px-6 py-2 text-white bg-black rounded-lg hover:bg-gray-800"
-                        disabled={isCheckingAuth}
                     >
-                        {isCheckingAuth
-                            ? "Checking..."
-                            : isAuthenticated ? "Go to Dashboard" : "Sign In"}
+                        Sign In
                     </button>
                 </div>
             </header>
@@ -62,13 +57,10 @@ export function Home() {
                 <section className="text-center">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to start your Stoic journey?</h3>
                     <button
-                        onClick={() => isAuthenticated ? navigate('/dashboard') : navigate('/signup')}
+                        onClick={() => navigate('/signup')}
                         className="px-6 py-2 text-white bg-black rounded-lg hover:bg-gray-800"
-                        disabled={isCheckingAuth} // Disable the button while checking auth
                     >
-                        {isCheckingAuth
-                            ? "Checking..."
-                            : isAuthenticated ? "Access Dashboard" : "Sign Up Now"}
+                        Sign Up Now
                     </button>
                 </section>
             </main>
