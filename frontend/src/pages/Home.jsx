@@ -28,7 +28,6 @@ export function Home() {
                 </section>
 
                 <section className="grid md:grid-cols-3 gap-8 mb-12">
-            
                     <div className="bg-white p-6 rounded-lg shadow-lg">
                         <div className="flex items-center mb-4">
                             <ScrollText className="mr-2" />
